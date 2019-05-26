@@ -1,0 +1,122 @@
+\documentclass[twoside, letterpaper]{book}
+% PACKAGES --------------------{{{
+\usepackage{lipsum}
+\usepackage[showframe, margin= 1.5in]{geometry}
+\usepackage{fontspec} 
+\usepackage[newparttoc, clearempty]{titlesec}
+\usepackage[dotinlabels]{titletoc}
+\usepackage{fancyhdr}
+%}}}
+% FONTS ----------------------{{{
+\setmainfont{minionproregular.ttf}
+\newfontfamily{\hfont}{MyriadPro-BoldCond.otf}
+%}}}
+% HEADER/FOOTER -----------{{{
+\newcommand{\vertline}{\hspace{5pt}|\hspace{5pt}}
+\pagestyle{fancy}
+\fancyhf[LCR]{}
+\fancyfoot[LE]{\hfont\thepage\vertline\leftmark}
+\fancyfoot[RO]{\hfont\rightmark\vertline\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+%
+\fancypagestyle{plain}{
+\fancyhf[LCR]{}
+\fancyfoot[RO]{\hfont\thepage}}
+
+%}}}
+%PART ------------------------{{{
+\titlecontents{part}[50pt]
+  {\hrule}
+  {\Large\hfont\contentslabel[PART \thecontentslabel{.}]{50pt}}
+  {}
+  {}
+  []
+%
+\assignpagestyle{\part}{empty}
+\titleformat{\part}[display]
+  {\hfont\huge}  %format
+  {\hfill\LARGE PART \thepart}  %label
+  {0pt}  %sep
+  {\hrule\hfill}  %before-code
+  {}  %after-code
+%
+\titlespacing{\part}{0pt}{0pt}{0pt}[0pt]
+%CHAPTER ----------------{{{
+\titlecontents{chapter}[15pt]
+  {}
+  {\hfont\contentslabel[\thecontentslabel{.}]{15pt}}
+  {}
+  {\hfont\titlerule*[0.5pc]{.}\contentspage}
+  []
+%
+\assignpagestyle{\chapter}{plain}
+%
+\titleformat{\chapter}[display]
+  {\hfont\huge}  %format
+  {\hfill\LARGE CHAPTER \thechapter}  %label
+  {0pt}  %sep
+  {\hrule\hfill}  %before-code
+  {}  %after-code
+%
+\titlespacing{\chapter}{0pt}{0pt}{0pt}[0pt]
+%}}}
+%SECTION ----------------{{{
+\titlecontents{section}[15pt]
+  {}
+  {}
+  {}
+  {\hfill\contentspage}
+  []
+%
+\titleformat{\section}[hang]
+  {\hfont\Large}  %format
+  {}  %label
+  {0pt}  %sep
+  {}  %before-code
+  {}  %after-code
+%
+\titlespacing{\section}{0pt}{0pt}{0pt}[0pt]
+%}}}
+%SUBSECTION ----------------{{{
+\titlecontents{subsection}[20pt]
+  {}
+  {}
+  {}
+  {\hfill\contentspage}
+  []
+%
+\titleformat{\subsection}[hang]
+  {\hfont\large}  %format
+  {}  %label
+  {0pt}  %sep
+  {}  %before-code
+  {}  %after-code
+%
+\titlespacing{\subsection}{0pt}{0pt}{0pt}[0pt]
+%}}}
+% Start the document
+\begin{document}
+\pagestyle{fancy}
+  \begin{flushright}
+  \hfont\Large ORIGINAL\par
+  \hrule \vspace{2pt}
+  \hfont\huge Template \par
+\end{flushright}
+
+
+\tableofcontents
+%
+\part{This is Part One}
+\chapter{This is Chapter One}
+\section{This is Section One}
+\lipsum
+\subsection{This is SubSection One}
+\lipsum
+\part{Part 2}
+this part 2!!!!!!!!
+
+
+\end{document}
